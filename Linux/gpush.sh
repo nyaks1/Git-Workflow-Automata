@@ -8,7 +8,7 @@ RED='\033[0;31m'
 NC='\033[0m' # No Color
 
 # 1. Check if a commit message was provided
-if [ -z "$1" ]
+if [[ -z "$1" ]];
 then
     echo -e "${RED}Error: Yo, you forgot the commit message!${NC}"
     echo -e "${CYAN}Usage: ./gpush.sh \"your message here\"${NC}"
