@@ -1,1 +1,46 @@
-# Git-Workflow-Automata
+# Git Workflow Automata
+**By Nyaks**
+
+> "Why do it in 30 seconds when a script can do it in 2?"
+
+### Overview
+This repository contains a cross-platform automation suite for streamlining the Git development lifecycle. Whether you are on a Linux lab machine at WeThinkCode_ or your Windows setup at home, these scripts handle the heavy lifting.
+
+---
+
+### Features
+- **One-Command Deployment:** Stage, commit, and push in a single breath.
+- **Flamboyant Feedback:** High-visibility terminal output for status updates.
+- **Cross-Platform:** Native support for both Bash (Linux/GitBash) and PowerShell (Windows).
+- **Safety Rails:** Built-in validation to prevent empty commits.
+
+---
+
+### Installation & Setup
+
+#### Linux (or Windows via GitBash)
+Uses the `gpush.sh` script. This is the recommended "Sloth" method.
+
+1. **Move the script:** `sudo mv Linux/gpush.sh /usr/local/bin/gpush`
+2. **Make it executable:** `sudo chmod +x /usr/local/bin/gpush`
+3. **Add the Alias:** Add `alias g='gpush'` to your `~/.bashrc` or `~/.bash_profile`. if you don't have any becacuase 
+                      you are using GitBash via Windows, you just have to create `~/.bash_profile`
+4. **Refresh:** `source ~/.bashrc`
+
+> **Note for Windows Users:** If you have **GitBash** installed, you can skip the PowerShell setup and use this     method! Just point your alias to the `.sh` file.
+
+#### Windows (Native PowerShell)
+Uses the `gpush.ps1` script for a native Windows experience.
+
+1. **Move the script:** Place `gpush.ps1` in a folder (e.g., `C:\Scripts\`).
+2. **Update your Path:** Add `C:\Scripts\` to your System Environment Variables (Path).
+3. **Add to Profile:** Open `notepad $PROFILE` and add:
+   `function g { & "C:\Scripts\gpush.ps1" $args }`
+4. **Execution Policy:** Ensure you can run scripts: `Set-Execution Policy RemoteSigned -Scope CurrentUser`.
+
+---
+
+### Usage
+Once installed, simply type:
+```bash
+g "Your commit message here"
