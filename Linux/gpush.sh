@@ -23,7 +23,12 @@ echo -e "${YELLOW}Committing with message: \"$1\"${NC}"
 git commit -m "$1"
 
 echo -e "${YELLOW}Pushing to remote...${NC}"
-if git push; then
+# Capture the output and check if it actually went to GitHub
+# Redirect errors (2>&1) so the script can "read" the warnings too
+PUSH_OUTPUT=$(git push 2>&1)
+echo "$PUSH_OUTPUT" 
+
+if echo "$PUSH_OUTPUT" | grep -qE "To github.com|Everything up-to-date|main -> main"; then
     echo -e "${GREEN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
     echo -e "${GREEN}  Successful!    ${NC}"
     echo -e "${GREEN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
