@@ -40,7 +40,26 @@ Uses the `gpush.ps1` script for a native Windows experience.
 
 ---
 
+### The "Sloth-Tier" (The Lazy Way)
+# If you don't want to move files manually or worry about directory paths, just copy and paste the "Magic Spell" for your system. This will download the script and set it up as a global command in one shot.
+
+### For Linux (Pop!_OS / Ubuntu / Mac)
+# This command downloads the script, gives it execution power, and moves it to your system's "VIP" folder.
+
+### Bash
+curl -sSL https://raw.githubusercontent.com/nyaks1/Git-Workflow-Automata/main/Linux/gpush.sh -o gpush && chmod +x gpush && sudo mv gpush /usr/local/bin/g
+Now, just type g "your message" from any folder.
+
+## For Windows (PowerShell - Admin Required)
+This will create your PowerShell profile if it doesn't exist, download the script to your user folder, and link it to the g command.
+
+## PowerShell
+iwr https://raw.githubusercontent.com/nyaks1/Git-Workflow-Automata/main/Windows/gpush.ps1 -OutFile $env:USERPROFILE\gpush.ps1; if (!(Test-Path $PROFILE)) { New-Item -Path $PROFILE -Type File -Force }; Add-Content $PROFILE "`nfunction g { & `"$env:USERPROFILE\gpush.ps1`" `$args }"
+Restart PowerShell or run . $PROFILE to activate.
+
 ### Usage
 Once installed, simply type:
 ```bash
 g "Your commit message here"
+
+Embrace the laziness 
